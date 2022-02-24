@@ -1,0 +1,12 @@
+rgname = "rg-eus-inf-01"
+location = "eastus"
+vnetname = "vnet-eus-inf-01"
+vnetcidr   = ["172.25.0.0/24"]
+snetcidr   = ["172.25.0.0/26", "172.25.0.64/28", "172.25.0.80/28", "172.25.0.128/26"]
+snet1name = "GatewaySubnet"
+snet2name = "snet-eus-inf-ad-01"
+snet3name = "snet-eus-inf-mgmt-01"
+snet4name = "AzureFirewallSubnet"
+# nsgsnet1 = "nsg-eus-prod-snet-web-01"
+nsgsnet2 = "nsg-eus-inf-snet-ad-01"
+nsgsnet3 = "nsg-eus-inf-snet-mgmt-01"
