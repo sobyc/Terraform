@@ -1,0 +1,11 @@
+rgname = "rg-eus-prod-01"
+location = "eastus"
+vnetname = "vnet-eus-prod-01"
+vnetcidr   = ["172.25.1.0/24"]
+snetcidr   = ["172.25.1.0/28", "172.25.1.16/28", "172.25.1.32/28"]
+snet1name = "snet-eus-prod-web-01"
+snet2name = "snet-eus-prod-app-01"
+snet3name = "snet-eus-prod-db-01"
+nsgsnet1 = "nsg-eus-prod-snet-web-01"
+nsgsnet2 = "nsg-eus-prod-snet-app-01"
+nsgsnet3 = "nsg-eus-prod-snet-db-01"
