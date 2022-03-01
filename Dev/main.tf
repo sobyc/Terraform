@@ -1,3 +1,15 @@
+
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "rg-eus-inf-01"
+    storage_account_name = "sastatefileinf"
+    container_name       = "devstate"
+    key                  = "dev.terraform.tfstate"
+  }
+}
+
+
+
 provider "azurerm" {
   features {
 
@@ -108,7 +120,7 @@ resource "azurerm_subnet_network_security_group_association" "nsgsnet2associatio
     module.nsgsnet2,module.snet2
   ]
 }
-
+/*
 resource "azurerm_subnet_network_security_group_association" "nsgsnet3association" {
   subnet_id                 = module.snet3.snetid 
   network_security_group_id = module.nsgsnet3.nsg-id
@@ -116,3 +128,5 @@ resource "azurerm_subnet_network_security_group_association" "nsgsnet3associatio
     module.nsgsnet3,module.snet3
   ]
 }
+
+*/
