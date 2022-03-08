@@ -1,2 +1,2 @@
-Name = Swati
+Name = Ram
 Age = 35

@@ -11,7 +11,7 @@ variable "location" {
 
 variable "users" {
     type = list
-    default = ["souRAbh","Manvik","Swati"]
+    default = ["souRAbh","Manvik","Ravi"]
 }
 
 variable "mapusers" {

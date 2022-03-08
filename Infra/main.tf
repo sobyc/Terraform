@@ -1,3 +1,19 @@
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "rg-eus-inf-01"
+    storage_account_name = "sastatefile_sa"
+    container_name       = "infstate"
+    key                  = "inf.terraform.tfstate"
+
+     depends_on = [
+      module.Resource_Group
+    ]
+  }
+}
+
+
+
+
 provider "azurerm" {
   features {
 
