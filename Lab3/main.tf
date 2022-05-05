@@ -15,27 +15,20 @@ resource "azurerm_virtual_network" "vnetinf" {
   location            = azurerm_resource_group.rgname.location
   resource_group_name = azurerm_resource_group.rgname.name
   address_space       = ["172.25.0.0/24"]
+  depends_on = [
+    azurerm_resource_group.rgname
+  ]
 
-
-  subnet {
-    name           = "GatewaySubnet"
-    address_prefix = "172.25.0.0/26"
-  }
-
-  subnet {
-    name           = "snet-we-inf-ad-01"
-    address_prefix = "172.25.0.64/28"
-
-  }
-  subnet {
-    name           = "snet-we-inf-mgmt-01"
-    address_prefix = "172.25.0.96/28"
-  }
-
-  
-
-  tags = {
-    environment = "Infra"
-  }
 }
 
+
+resource "azurerm_subnet" "subnet-1" {
+  name                 = "web-subnet"
+  resource_group_name  = azurerm_resource_group.rgname.name
+  virtual_network_name = azurerm_virtual_network.vnetinf.name
+  address_prefixes     = ["172.25.0.0/28"]
+
+    depends_on = [
+    azurerm_virtual_network.vnetinf
+  ]
+}

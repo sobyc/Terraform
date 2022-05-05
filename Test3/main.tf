@@ -22,14 +22,26 @@ module "rg" {
 }
 
 
+module "rg2" {
+  source = "../Modules/Resource_Group"
+  rgname = "test-rg2"
+  location = "westeurope"
+}
+
 
 data "azurerm_resource_group" "example" {
   name = "test-rg1"
-
+  depends_on = [
+    module.rg
+  ]
 }
 
-output "id" {
-  value = data.azurerm_resource_group.example.id
+output "RG_Name" {
+  value = data.azurerm_resource_group.example.name
+}
+
+output "RG_Location" {
+  value = data.azurerm_resource_group.example.location
 }
 
 

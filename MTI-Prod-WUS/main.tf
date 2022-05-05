@@ -1,15 +1,12 @@
-
 terraform {
   backend "azurerm" {
-    resource_group_name  = "state-rg"
-    storage_account_name = "sastatefilesa"
-    container_name       = "state-dev"
-    key                  = "dev.terraform.tfstate"
+    resource_group_name  = "rg-eus-inf-01"
+    storage_account_name = "sastatefilesa1"
+    container_name       = "prodstatewus"
+    key                  = "prodwus.terraform.tfstate"
 
   }
 }
-
-
 
 provider "azurerm" {
   features {
@@ -59,17 +56,7 @@ module "snet2" {
   ]
 }
 
-module "snet3" {
-  source         = "../Modules/Subnet"
-  azurerm_subnet = "${var.snet3name}"
-  rgname         = "${var.rgname}"
-  vnetname       = "${var.vnetname}"
-  cidrsnet       = ["${var.snetcidr[2]}"]
 
-  depends_on = [
-    module.vnet
-  ]
-}
 
 module "nsgsnet1" {
   source     = "../Modules/Network_Security_Group"
@@ -93,6 +80,8 @@ module "nsgsnet2" {
   ]
 }
 
+
+/*
 module "nsgsnet3" {
   source     = "../Modules/Network_Security_Group"
   location   = "${var.location}"
@@ -104,7 +93,7 @@ module "nsgsnet3" {
   ]
 }
 
-
+*/
 
 resource "azurerm_subnet_network_security_group_association" "nsgsnet1association" {
   subnet_id                 = module.snet1.snetid 
@@ -129,5 +118,4 @@ resource "azurerm_subnet_network_security_group_association" "nsgsnet3associatio
     module.nsgsnet3,module.snet3
   ]
 }
-
 */
