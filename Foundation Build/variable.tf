@@ -46,7 +46,9 @@ variable "snethubad" {
 variable "snethubsec" {
   type = string
 }
-
+variable "appgwsnet" {
+  type = string
+}
 variable "snetspoke1web" {
   type = string
 }
@@ -132,6 +134,11 @@ variable "cidrspoke3" {
   type = list(string)
 }
 
+variable "tags" {
+  type        = map(any)
+  description = "(Optional) A map of tags to be applied globally on all Azure resource groups"
+  default     = {}
+}
 
 
 
