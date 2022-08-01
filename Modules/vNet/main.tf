@@ -6,6 +6,6 @@ resource "azurerm_virtual_network" "vnet" {
     location = "${var.location}"
     name = "${var.vnetname}"
     address_space = "${var.vnetcidr}"
-
+    tags = var.tags
 }
 

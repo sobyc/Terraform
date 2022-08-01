@@ -18,3 +18,10 @@ variable "vnetcidr" {
     default = [ "172.21.0.0/24" ]
  
 }
+
+
+variable "tags" {
+  type        = map(any)
+  description = "(Optional) A map of tags to be applied globally on all Azure resource groups"
+  default     = {}
+}

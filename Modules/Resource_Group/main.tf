@@ -3,7 +3,7 @@
 resource "azurerm_resource_group" "rgnet" {
   name     = var.rgname
   location = var.location
-
+  tags = var.tags
 }
 
 output "rgid" {

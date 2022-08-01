@@ -8,11 +8,11 @@ variable "location" {
     description = "location of resource group"
 }
 
-/* 
-variable "global_tags" {
+
+variable "tags" {
   type        = map(any)
   description = "(Optional) A map of tags to be applied globally on all Azure resource groups"
   default     = {}
 }
-*/
+
 

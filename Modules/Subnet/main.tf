@@ -3,6 +3,6 @@ resource "azurerm_subnet" "subnet" {
   resource_group_name  = var.rgname
   virtual_network_name = var.vnetname
   address_prefixes     = "${var.cidrsnet}"
-
+  tags = var.tags
 }
 
